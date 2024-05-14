@@ -1,0 +1,25 @@
+<!-- File: index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+   <script defer type="module" src="apiCall.mjs"></script>
+    <script defer type="module" src="index.mjs"></script>
+    <script defer type="module" src="other.mjs"></script>
+</head>
+<body>
+    <header>
+        <h1>Dog Gallery</h1>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search dogs...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main id="gallery"></main>
+    <div id="error"></div>
+</body>
+</html>
