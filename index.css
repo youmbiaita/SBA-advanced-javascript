@@ -18,6 +18,7 @@ h1 {
 }
 
 #search-form {
+    border: solid black;
     width: 200px;
     margin: auto;
     display: flex;
@@ -69,3 +70,5 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
+
+
