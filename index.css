@@ -7,23 +7,28 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
     padding: 20px;
     text-align: center;
 }
 
 h1 {
+    background-color: #333;
+    color: #fff;
     margin: 0;
 }
 
-form {
-    margin-top: 20px;
+#search-form {
+    width: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-input[type="text"] {
+#search-form input {
     padding: 8px;
-    font-size: 16px;
+    margin: 20px;
+   
 }
 
 button {
@@ -46,13 +51,15 @@ button:hover {
     margin-top: 20px;
 }
 
-.cat-item {
+.dog-item {
     margin: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.cat-item img {
-    width: 200px;
+.dog-item img {
+    width: 300px;
     height: auto;
     border-radius: 5px;
 }

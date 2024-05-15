@@ -2,24 +2,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-   <script defer type="module" src="apiCall.mjs"></script>
+    <link rel="stylesheet" href="index.css">
+    <script defer type="module" src="apiCall.mjs"></script>
     <script defer type="module" src="index.mjs"></script>
     <script defer type="module" src="other.mjs"></script>
 </head>
+
 <body>
     <header>
         <h1>Dog Gallery</h1>
         <form id="search-form">
-            <input type="text" id="search-input" placeholder="Search dogs...">
-            <button type="submit">Search</button>
+            <label for="checkbox">Has Breeds</label>
+            <input type="checkbox" id="has-breeds">
+            <label>Select limit:</label>
+            <select name="limit" id="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+
+            <label>Select Page:</label>
+            <select name="page" id="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="text" id="search-input" placeholder="Search Cat ...">
+            <input type="submit" value="Search">
         </form>
     </header>
     <main id="gallery"></main>
     <div id="error"></div>
 </body>
+
 </html>
