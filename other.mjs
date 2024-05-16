@@ -8,9 +8,7 @@ export function renderGallery(data) {
         dogElement.classList.add("dog-item");
         dogElement.innerHTML = `
             <img src="${dog.url}" alt="Dog">
-            <div>
-                <button class="like-btn" data-image-id="${dog.id}" data-vote-type="up">like</button>
-            </div>
+            <div><span class="material-symbols-outlined">favorite</span></div>
         `;
         galleryElement.appendChild(dogElement);
     });

@@ -7,9 +7,27 @@ import { renderGallery, renderError } from './other.mjs';
 const API_KEY = "live_siklOA1eZTT1V7XSk3Ud2pumwWl0tZNI71VX3SMBdvXZMNcqTxNm0YqwRlnqjUjA";
 const API_URL = " https://api.thecatapi.com/v1";
 
+const petSelect = document.getElementById("petSelect")
+
+async function initialLoad () {
+    try {
+        const response = await axios("https://api.thecatapi.com/v1/breeds");
+        const pets = await response.data;
+        pets.forEach(pet => {
+            const option = document.createElement("option");
+            option.value = pet.id;
+            option.textContent = pet.name;
+
+            petSelect.appendChild(option)
+        });
+    } catch (error) {
+        console.error("Error loading search", error)
+    }
+}
+initialLoad();
+
 async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
     const url = `${API_URL}/images/search?limit=${limit}&page=${page}&q=${query}&has_breeds=${hasBreeds}&api_key=${API_KEY}`;
-    console.log(url)
     try {
         const data = await fetchData(url);
         renderGallery(data);
@@ -29,7 +47,7 @@ async function vote(imageId, voteType) {
 // Event listeners
 document.getElementById('search-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    const query = document.getElementById('search-input').value;
+    const query = document.getElementById('petSelect').value;
     const limit = parseInt(document.getElementById("limit").value);
     const page = parseInt(document.getElementById("page").value);
     const hasBreeds = document.getElementById("has-breeds").value === "on" ? 1 : 0;
