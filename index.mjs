@@ -65,3 +65,12 @@ document.getElementById('gallery').addEventListener('click', function (event) {
 // Initial load
 searchCats("dogs");
 
+const classVote = document.getElementsByClassName("vote");
+Array.from(classVote).forEach(v => {
+    v.addEventListener("click", evt => {
+        console.log(v)
+        console.log(evt.target)
+        evt.target.style.backgroundColor = "red";
+    })
+});
+

@@ -63,11 +63,6 @@ button:hover {
     flex-direction: column;
 }
 
-.dog-item:hover{
-    border: 2px solid red;
-    border-radius: 5px;
-}
-
 .dog-item img {
     width: 300px;
     height: auto;

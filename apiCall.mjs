@@ -1,4 +1,4 @@
-// File: api.mjs
+
 
 export async function fetchData(url) {
     const response = await fetch(url);

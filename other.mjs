@@ -7,8 +7,12 @@ export function renderGallery(data) {
         const dogElement = document.createElement("div");
         dogElement.classList.add("dog-item");
         dogElement.innerHTML = `
+
             <img src="${dog.url}" alt="Dog">
-            <div><span class="material-symbols-outlined">favorite</span></div>
+            <div class="vote">
+                <span class="material-symbols-outlined">thumb_up</span>
+                <span class="material-symbols-outlined">thumb_down</span>                
+            </div>
         `;
         galleryElement.appendChild(dogElement);
     });
