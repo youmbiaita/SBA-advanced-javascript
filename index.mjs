@@ -9,7 +9,7 @@ const API_URL = " https://api.thecatapi.com/v1";
 
 const petSelect = document.getElementById("petSelect")
 
-async function initialLoad () {
+async function initialLoad() {
     try {
         const response = await axios("https://api.thecatapi.com/v1/breeds");
         const pets = await response.data;
@@ -31,6 +31,16 @@ async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
     try {
         const data = await fetchData(url);
         renderGallery(data);
+        // how to get POST works
+        const classVote = document.getElementsByClassName("vote");
+        Array.from(classVote).forEach(v => {
+            v.firstElementChild.addEventListener("click", evt => {
+                evt.target.style.color = "green";
+            })
+            v.lastElementChild.addEventListener("click", evt => {
+                evt.target.style.color = "red";
+            })
+        });
     } catch (error) {
         renderError(error);
     }
@@ -65,12 +75,4 @@ document.getElementById('gallery').addEventListener('click', function (event) {
 // Initial load
 searchCats("dogs");
 
-const classVote = document.getElementsByClassName("vote");
-Array.from(classVote).forEach(v => {
-    v.addEventListener("click", evt => {
-        console.log(v)
-        console.log(evt.target)
-        evt.target.style.backgroundColor = "red";
-    })
-});
 
