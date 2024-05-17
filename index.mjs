@@ -33,11 +33,15 @@ async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
         renderGallery(data);
         // how to get POST works
         const classVote = document.getElementsByClassName("vote");
+        const imageId = document.getElementById("picture-id").value;
+
         Array.from(classVote).forEach(v => {
             v.firstElementChild.addEventListener("click", evt => {
+               vote(imageId, 1); 
                 evt.target.style.color = "green";
             })
             v.lastElementChild.addEventListener("click", evt => {
+                vote(imageId, -1);
                 evt.target.style.color = "red";
             })
         });

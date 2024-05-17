@@ -9,8 +9,10 @@ export function renderGallery(data) {
         dogElement.innerHTML = `
 
             <img src="${dog.url}" alt="Dog">
+            <input type="hidden" id="picture-id" value="${dog.id}">
             <div class="vote">
                 <span class="material-symbols-outlined">thumb_up</span>
+                          
                 <span class="material-symbols-outlined">thumb_down</span>                
             </div>
         `;
