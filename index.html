@@ -2,62 +2,66 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cat Gallery</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="index.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="index.css" />
     <script defer type="module" src="apiCall.mjs"></script>
     <script defer type="module" src="index.mjs"></script>
     <script defer type="module" src="other.mjs"></script>
-     <!-- Axios -->
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        header {
+            background-image: url("cat.jpg");
+        }
+    </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
+ 
     <header>
-        <h1>Dog Gallery</h1>
-        <form id="search-form">
-            <div>
-                <label for="checkbox">Has Breeds</label>
-                <input type="checkbox" id="has-breeds">
-            </div>
-            <div>
-                <label>Select limit:</label>
-                <select name="limit" id="limit">
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                </select>
-            </div>
+      <h1>Welcome to Cat Gallery</h1>
+      <h2>The drop down of Api cat</h2>
+      <form id="search-form">
+        <div>
+          <label for="checkbox">Has Breeds</label>
+          <input type="checkbox" id="has-breeds" />
+        </div>
+        <div>
+          <label>Select limit:</label>
+          <select name="limit" id="limit">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+        </div>
 
-            <div>
-                <label>Select Page:</label>
-                <select name="page" id="page">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <div>
-                <select id="petSelect"></select>
-            </div>
-            <input type="submit" value="Search">
-        </form>
+        <div>
+          <label>Select Page:</label>
+          <select name="page" id="page">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div>
+          <select id="petSelect"></select>
+        </div>
+        <input type="submit" value="Search" id="btn-submit"/>
+      </form>
     </header>
     <main id="gallery"></main>
-    <div class="wrapper">
-        <a class="heart" href="#"></a>
-    </div>
+   <h2 id="h2">Vote for Your favorite Cat!</h2>
     <div id="error"></div>
-</body>
-
+  </body>
 </html>

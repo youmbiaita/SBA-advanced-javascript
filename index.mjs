@@ -7,7 +7,7 @@ import { renderGallery, renderError } from './other.mjs';
 const API_KEY = "live_siklOA1eZTT1V7XSk3Ud2pumwWl0tZNI71VX3SMBdvXZMNcqTxNm0YqwRlnqjUjA";
 const API_URL = " https://api.thecatapi.com/v1";
 
-const petSelect = document.getElementById("petSelect")
+const petSelect = document.getElementById("petSelect");
 
 async function initialLoad() {
     try {
@@ -24,10 +24,13 @@ async function initialLoad() {
         console.error("Error loading search", error)
     }
 }
+
 initialLoad();
 
 async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
-    const url = `${API_URL}/images/search?limit=${limit}&page=${page}&q=${query}&has_breeds=${hasBreeds}&api_key=${API_KEY}`;
+    //const url = `${API_URL}/images/search?limit=${limit}&page=${page}&q=${query}&has_breeds=${hasBreeds}&api_key=${API_KEY}`;
+    const url = `https://api.thecatapi.com/v1/images/search?breed_ids=${query}`;
+    console.log(url)
     try {
         const data = await fetchData(url);
         renderGallery(data);
@@ -39,10 +42,12 @@ async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
             v.firstElementChild.addEventListener("click", evt => {
                vote(imageId, 1); 
                 evt.target.style.color = "green";
+                evt.target.parentElement.lastElementChild.style.color = "black";
             })
             v.lastElementChild.addEventListener("click", evt => {
                 vote(imageId, -1);
                 evt.target.style.color = "red";
+                evt.target.parentElement.firstElementChild.style.color = "black";
             })
         });
     } catch (error) {
@@ -51,8 +56,10 @@ async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
 }
 
 async function vote(imageId, voteType) {
+    console.log(imageId)
+    console.log(API_KEY)
     try {
-        await postData(`${API_URL}/votes`, { image_id: imageId, value: voteType }, API_KEY);
+        await postData("https://api.thecatapi.com/v1/votes", { image_id: imageId, value: voteType }, API_KEY);
     } catch (error) {
         renderError(error);
     }
@@ -76,7 +83,9 @@ document.getElementById('gallery').addEventListener('click', function (event) {
     }
 });
 
-// Initial load
-searchCats("dogs");
+const btnSearch = document.getElementById("btn-submit");
+btnSearch.addEventListener("click", evt => {
+    searchCats(petSelect.value);
+})
 
 
