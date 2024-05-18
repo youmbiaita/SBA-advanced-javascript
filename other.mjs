@@ -4,7 +4,6 @@ export function renderGallery(data) {
     const galleryElement = document.getElementById("gallery");
     galleryElement.innerHTML = "";
     data.forEach(cat => {
-        console.log(cat)
         const catElement = document.createElement("div");
         catElement.classList.add("cat-item");
         catElement.innerHTML = `

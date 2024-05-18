@@ -12,6 +12,7 @@ export async function postData(url, data, apiKey) {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
             'x-api-key': apiKey
         },

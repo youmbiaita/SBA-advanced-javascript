@@ -3,8 +3,8 @@
 import { fetchData, postData } from './apiCall.mjs';
 import { renderGallery, renderError } from './other.mjs';
 
-//const API_KEY = "live_wyM7IRDoOf36EVWhNv3v371zpc0H1osTq5P5XGEX2GmnoJEayuYwQfwhhCgqnyOY";
-const API_KEY = "live_siklOA1eZTT1V7XSk3Ud2pumwWl0tZNI71VX3SMBdvXZMNcqTxNm0YqwRlnqjUjA";
+const API_KEY = "live_wyM7IRDoOf36EVWhNv3v371zpc0H1osTq5P5XGEX2GmnoJEayuYwQfwhhCgqnyOY";
+//const API_KEY = "live_siklOA1eZTT1V7XSk3Ud2pumwWl0tZNI71VX3SMBdvXZMNcqTxNm0YqwRlnqjUjA";
 const API_URL = " https://api.thecatapi.com/v1";
 
 const petSelect = document.getElementById("petSelect");
@@ -56,10 +56,11 @@ async function searchCats(query, page = 1, limit = 10, hasBreeds = 0) {
 }
 
 async function vote(imageId, voteType) {
-    console.log(imageId)
-    console.log(API_KEY)
+    console.log(imageId);
     try {
-        await postData("https://api.thecatapi.com/v1/votes", { image_id: imageId, value: voteType }, API_KEY);
+        await postData("https://api.thecatapi.com/v1/votes", {image_id: imageId, value: voteType}, API_KEY).then(d => {
+            console.log(d);    
+        });
     } catch (error) {
         renderError(error);
     }
